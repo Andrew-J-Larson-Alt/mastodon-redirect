@@ -1,0 +1,60 @@
+body {
+  overflow: hidden !important;
+}
+
+#mastodon-profile, #mastodon-redirect-url {
+  font-family: 'Roboto Slab', serif;
+  background: transparent;
+  border-radius: 9px;
+  outline: none;
+  width: 100%;
+  padding: 0.5em;
+}
+
+#mastodon-redirect-url {
+  font-size: 0.85em;
+  color: gray;
+  border: 3px solid #0077ff;
+  margin: 0.75019em 0 0.75019em 0;
+  display: block;
+}
+
+#mastodon-profile {
+  font-size: 1.5em;
+  color: white;
+  border: 3px solid #ffbf00;
+}
+
+#copy-p {
+  text-align: center;
+}
+
+#copy-btn {
+  margin-left: 0 !important;
+  font-size: 166% !important;
+  text-align: center;
+}
+
+#invalid-profile li {
+  margin: 1em 0;
+}
+
+.required {
+  border-radius: 2px;
+  border: 2px solid green;
+  padding: 0.25em;
+  margin: 0 0.125em;
+}
+
+.subtle {
+  color: dimgray;
+}
+
+.disable {
+  opacity: 0.33;
+  pointer-events: none;
+}
+
+.hide {
+  display: none;
+}
