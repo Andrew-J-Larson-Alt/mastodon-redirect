@@ -8,9 +8,9 @@ TEMP_FILE="temp.txt"
 servers=($(curl "${URL}" | grep -A 3 -F '<td class="table-success">UP</td>' | grep -oP 'scope="row".*href="https?://\K[^"]+' | sort))
 
 # creates JS object code
+echo -en "\nConverting server list to JS object"
 jsObject="let mastodonServers = {"
 index=0
-echo -en "\nConverting server list to JS object"
 for i in "${servers[@]}"
 do
   ! (( index % 500 )) && echo -n " ."
