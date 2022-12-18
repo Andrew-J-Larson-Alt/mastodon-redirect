@@ -49,23 +49,24 @@ servers=($(dlFile "${URL}" | grep -A 3 -F '<td class="table-success">UP</td>' | 
 
 # creates JS object code
 echo -en "\nConverting server list to JS object"
-jsObject="let mastodonServers = {"
+echo -n "let mastodonServers = {" > "${TEMP_FILE}"
 index=0
-for i in "${servers[@]}"
+for server in "${servers[@]}"
 do
   # echo progress dots
   ! (( index % 500 )) && echo -n " ."
 
   # create servers as keys, with their values being their URI encoded counterpart
-  jsObject="${jsObject}\"$i\": \"%$(xxd -pu <<< "$i" | sed 's/.\{2\}/&%/g')\""
+  serverHex=`xxd -pu <<< "$server"`
+  serverPercentEncoded=`echo "$serverHex" | sed 's/.\{2\}/%&/g' | tr -d '\n'`
+  echo -n "'$server': '$serverPercentEncoded'" >> "${TEMP_FILE}"
   index=$((index+1))
   if [ $index -eq ${#servers[@]} ]; then
-    jsObject="${jsObject}};"
+    echo "};" >> "${TEMP_FILE}"
   else
-    jsObject="${jsObject}, "
+    echo -n ", " >> "${TEMP_FILE}"
   fi
 done
-echo "$jsObject" > "${TEMP_FILE}"
 # updates custom.js with new mastodon servers if any
 sed -i -e '/let mastodonServers \=/{r '"${TEMP_FILE}"'' -e 'd}' "${JS_FILE}"
 rm -f "${TEMP_FILE}"
