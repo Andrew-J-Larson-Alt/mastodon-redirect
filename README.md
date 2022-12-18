@@ -4,7 +4,13 @@ Since Twitter decided to block Mastodon URLs, I've created this redirect website
 ## Website Usage
 You can either go to the website, [Mastodon Redirect](https://thealiendrew.github.io/mastodon-redirect/), directly and enter the Mastodon profile in the `@[username]@[mastodon.server]` format. Or you can use the url in the following fashion to auto redirect:
 
-- Profile URL: `https://thealiendrew.github.io/mastodon-redirect/?p=@AlienDrew@mstdn.social`
+- Username and Server URL: `https://thealiendrew.github.io/mastodon-redirect/?u=AlienDrew&s=mstdn.social`
+- Username and Server URL (Alt): `https://thealiendrew.github.io/mastodon-redirect/?s=mstdn.social&u=AlienDrew`
+
+Alteratives:
+
+- Profile URL (may not always work on certain websites): `https://thealiendrew.github.io/mastodon-redirect/?p=@AlienDrew@mstdn.social`
+- Profile URL (`@` replaced with `%40` will work on all websites): `https://thealiendrew.github.io/mastodon-redirect/?p=%40AlienDrew%40mstdn.social`
 
 ![Preview](https://github.com/TheAlienDrew/mastodon-redirect/blob/main/img/readme/preview.png)
 
