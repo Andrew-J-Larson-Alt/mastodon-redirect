@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Mastodon Redirect",
+    "short_name": "Mastodon Redirect",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
