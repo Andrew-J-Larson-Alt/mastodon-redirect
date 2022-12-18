@@ -45,7 +45,7 @@ var getQueryStringArray = function() {
   let assoc=[];
   let items = window.location.search.substring(1).split('&');
   for(let j = 0; j < items.length; j++) {
-    let a = items[j].split('='); assoc[a[0]] = (a[1] ? decodeURIComponent(a[1]) : a[1]);
+    let a = items[j].split('='); assoc[decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
   }
   return assoc;
 };
@@ -98,7 +98,9 @@ window.addEventListener('load', function() {
   // Main
 
   // check URL parameters first
-  let paramProfile = getQueryStringArray().p || ('@'+getQueryStringArray().u+'@'+getQueryStringArray().s);
+  let paramUsername = getQueryStringArray().u;
+  let paramServer = getQueryStringArray().s;
+  let paramProfile = getQueryStringArray().p || (paramUsername && paramServer) ? ('@'+paramUsername+'@'+paramServer) : null;
   if (paramProfile) {
     fromParameters = true;
     inputMastodonProfile.value = paramProfile;
