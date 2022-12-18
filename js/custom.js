@@ -103,8 +103,11 @@ window.addEventListener('load', function() {
   // check URL parameters first
   let paramUsername = getQueryStringArray().u;
   let paramServer = getQueryStringArray().s;
-  let paramProfile = getQueryStringArray().p || (paramUsername && paramServer) ? ('@'+paramUsername+'@'+paramServer) : null;
-  if (paramProfile) {
+  let paramProfile = getQueryStringArray().p;
+
+  if (!paramProfile && paramUsername && paramServer) paramProfile = '@'+paramUsername+'@'+paramServer;
+
+  if (paramProfile || (paramUsername && paramServer)) {
     fromParameters = true;
     inputMastodonProfile.value = paramProfile;
     console.log(`Validating "${paramProfile}" as valid Mastodon profile...`);
