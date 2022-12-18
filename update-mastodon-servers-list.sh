@@ -56,8 +56,8 @@ do
   # echo progress dots
   ! (( index % 500 )) && echo -n " ."
 
-  # create servers as keys, with `true` boolean as values
-  jsObject="${jsObject}\"$i\": true"
+  # create servers as keys, with their values being their URI encoded counterpart
+  jsObject="${jsObject}\"$i\": \"%$(xxd -pu <<< "$i" | sed 's/.\{2\}/&%/g')\""
   index=$((index+1))
   if [ $index -eq ${#servers[@]} ]; then
     jsObject="${jsObject}};"
