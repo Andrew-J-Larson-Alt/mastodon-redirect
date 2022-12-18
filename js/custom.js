@@ -15,6 +15,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+const wordMatch = "(?i)mastodon"; // case-insensitive check
+const wordEncoded = "%6D%61%73%74%6F%64%6F%6E";
 const githubNewIssueTitle = encodeURIComponent("[Needs Update] Mastodon Server List");
 const githubNewIssueBody = encodeURIComponent("<!-- Please enter the mastodon server instance you were trying to use below: -->");
 const githubNewIssueURL = `https://github.com/TheAlienDrew/m-r/issues/new?title=${githubNewIssueTitle}&body=${githubNewIssueBody}`;
@@ -64,7 +66,8 @@ var getProfileUrl = function(profile, copyBtn, pInvalid, containedNewUrl, spanMa
   if (validatedUsername && validatedServer) {
     // we have a valid profile
     profileUrl = "https://"+server+"/@"+username;
-    let redirectUrl = window.location.origin+window.location.pathname+'?u='+username+'&s='+server;
+    // the replaceAll's are required to avoid Twitters text detection of "mastodon"
+    let redirectUrl = window.location.origin+window.location.pathname+'?u='+username.replaceAll(wordMatch,wordEncoded)+'&s='+server.replaceAll(wordMatch,wordEncoded);
     if (copyBtn.classList.contains('disable')) copyBtn.classList.remove('disable');
     if (!copyBtn.hasAttribute('onclick')) copyBtn.setAttribute("onclick", `copyToClipboard("${redirectUrl}")`);
     if (!pInvalid.classList.contains('hide')) pInvalid.classList.add('hide');
