@@ -67,7 +67,7 @@ var getProfileUrl = function(profile, copyBtn, pInvalid, containedNewUrl, spanMa
     // we have a valid profile
     profileUrl = "https://"+server+"/@"+username;
     // the replaceAll's are required to avoid Twitters text detection of "mastodon"
-    let redirectUrl = window.location.origin+window.location.pathname+'?u='+username.replaceAll(wordMatch,wordEncoded)+'&s='+server.replaceAll(wordMatch,wordEncoded);
+    let redirectUrl = window.location.origin+window.location.pathname+'?p=@'+username.replaceAll(wordMatch,wordEncoded)+'@'+server.replaceAll(wordMatch,wordEncoded);
     if (copyBtn.classList.contains('disable')) copyBtn.classList.remove('disable');
     if (!copyBtn.hasAttribute('onclick')) copyBtn.setAttribute("onclick", `copyToClipboard("${redirectUrl}")`);
     if (!pInvalid.classList.contains('hide')) pInvalid.classList.add('hide');
