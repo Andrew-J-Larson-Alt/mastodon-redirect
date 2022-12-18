@@ -2,15 +2,15 @@
 Since Twitter decided to block Mastodon URLs, I've created this redirect website to automatically redirect to your Mastodon profile URL.
 
 ## Website Usage
-You can either go to the website, [Mastodon Redirect](https://thealiendrew.github.io/m-r/), directly and enter the Mastodon profile in the `@[username]@[mastodon.server]` format. Or you can use the url in the following fashion to auto redirect:
+You'll need to first go to the website to generate the link, [Mastodon Redirect](https://thealiendrew.github.io/m-r/), by entering the Mastodon profile in the `@[username]@[mastodon.server]` format, and then you'll be able to generate a working URL that should avoid Twitter blocking.
 
-- Profile URL (works on Twitter, but not all sites): `https://thealiendrew.github.io/m-r/?p=@AlienDrew@mstdn.social`
-- Profile URL (`@` replaced with `%40`; works on all sites): `https://thealiendrew.github.io/m-r/?p=%40AlienDrew%40mstdn.social`
+- Profile URL (works on Twitter, but not all sites): `https://thealiendrew.github.io/m-r/?p=@[username]@[encoded mastodon.server instance]`
+- Profile URL (`@` replaced with `%40`; works on all sites): `https://thealiendrew.github.io/m-r/?p=%40[mastodon.server]%40[encoded mastodon.server instance]`
 
 Alteratives (doesn't work on Twitter for some reason; strips the last parameter from link):
 
-- Username and Server URL: `https://thealiendrew.github.io/m-r/?u=AlienDrew&s=mstdn.social`
-- Username and Server URL (Alt): `https://thealiendrew.github.io/m-r/?s=mstdn.social&u=AlienDrew`
+- Username and Server URL: `https://thealiendrew.github.io/m-r/?u=[mastodon.server]&s=[encoded mastodon.server instance]`
+- Username and Server URL (Alt): `https://thealiendrew.github.io/m-r/?s=[mastodon.server]&u=[encoded mastodon.server instance]`
 
 ![Preview](https://github.com/TheAlienDrew/m-r/blob/main/img/readme/preview.png)
 
