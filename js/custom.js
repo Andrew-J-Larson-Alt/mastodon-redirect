@@ -17,7 +17,7 @@
 
 const githubNewIssueTitle = encodeURIComponent("[Needs Update] Mastodon Server List");
 const githubNewIssueBody = encodeURIComponent("<!-- Please enter the mastodon server instance you were trying to use below: -->");
-const githubNewIssueURL = `https://github.com/TheAlienDrew/mastodon-redirect/issues/new?title=${githubNewIssueTitle}&body=${githubNewIssueBody}`;
+const githubNewIssueURL = `https://github.com/TheAlienDrew/m-r/issues/new?title=${githubNewIssueTitle}&body=${githubNewIssueBody}`;
 //const mastodonServersTxtFile = '/mastodon-servers.txt';
 const validMastodonUsername = /[a-z0-9_]+([a-z0-9_\.-]+[a-z0-9_]+)?/i; // taken from `USERNAME_RE` in https://github.com/mastodon/mastodon/blob/main/app/models/account.rb
 const inputMastodonProfileID = 'mastodon-profile';
