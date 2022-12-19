@@ -12,7 +12,7 @@ Examples of generation URLs:
 
 Examples of redirecting URLs:
 
-- Profile URL (works on Twitter, but not all sites): `https://thealiendrew.github.io/m-r/?p=AlienDrew@mstdn%2Esocial`
+- Profile URL (works on most sites): `https://thealiendrew.github.io/m-r/?p=AlienDrew@mstdn%2Esocial`
 - Profile URL (`@` replaced with `%40`; works on all sites): `https://thealiendrew.github.io/m-r/?p=AlienDrew%40mstdn%2Esocial`
 
 ### Notes on crafting redirect URLs:
