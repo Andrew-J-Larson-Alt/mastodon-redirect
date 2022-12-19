@@ -58,13 +58,13 @@ var getProfileUrl = function(profile, copyBtn, pInvalid, containedNewUrl, spanMa
   
   let profileArray = (typeof(profile) == "object") ? (profile.decoded).split("@") : profile.split("@");
   let profileEncodedArray = (typeof(profile) == "object") ? ((profile.encoded).replaceAll("%40","@")).split("@") : []; // only objects have encoded values
-  let username = (profileArray.length == 3) ? profileArray[1] : '';
-  let server = (profileArray.length == 3) ? profileArray[2] : '';
-  let serverEncoded = (profileEncodedArray.length == 3) ? profileEncodedArray[2] : '';
+  let username = (profileArray.length == 2) ? profileArray[0] : '';
+  let server = (profileArray.length == 2) ? profileArray[1] : '';
+  let serverEncoded = (profileEncodedArray.length == 2) ? profileEncodedArray[1] : '';
   let validatedUsername = validMastodonUsername.test(username);
   let validatedServerEncoded = mastodonServers[server];
   doNotRedirect = fromParameters ? (serverEncoded.indexOf('%') == -1) : false;
-window.test = profile.encoded
+
   // Test if the new value is a valid profile, to enable the copy to clipboard button
   let pInvalidTextElement = pInvalid.firstChild;
   // must have valid username and server, but no profileUrl should be generated when parameters given didn't use encoded server)
@@ -72,7 +72,7 @@ window.test = profile.encoded
     // we have a valid profile
     profileUrl = "https://"+server+"/@"+username;
     // the replaceAll's are required to avoid Twitters text detection of "mastodon"
-    let redirectUrl = window.location.origin+window.location.pathname+'?p=@'+username.replaceAll(wordMatch,wordEncoded)+'@'+validatedServerEncoded;
+    let redirectUrl = window.location.origin+window.location.pathname+'?p='+username.replaceAll(wordMatch,wordEncoded)+'@'+validatedServerEncoded;
     if (copyBtn.classList.contains('disable')) copyBtn.classList.remove('disable');
     if (!copyBtn.hasAttribute('onclick')) copyBtn.setAttribute("onclick", `copyToClipboard("${redirectUrl}")`);
     if (!pInvalid.classList.contains('hide')) pInvalid.classList.add('hide');
@@ -113,8 +113,8 @@ window.addEventListener('load', function() {
   // use username and server paramters instead of profile parameter
   if (!paramProfile && paramUsername && paramServer) {
     paramProfile = {
-      "encoded": '%40'+paramUsername.encoded+'%40'+paramServer.encoded,
-      "decoded": '@'+paramUsername.decoded+'@'+paramServer.decoded
+      "encoded": paramUsername.encoded+'%40'+paramServer.encoded,
+      "decoded": paramUsername.decoded+'@'+paramServer.decoded
     };
   }
 
