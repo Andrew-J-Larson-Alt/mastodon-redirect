@@ -57,8 +57,8 @@ do
   ! (( index % 500 )) && echo -n " ."
 
   # create servers as keys, with their values being their URI encoded counterpart
-  serverPercentEncoded=`echo -n "$server" | xxd -pu | sed 's/.\{2\}/%&/g' | tr -d '\n'` # new lines and string terminators need to be removed
-  echo -n "'$server': '$serverPercentEncoded'" >> "${TEMP_FILE}"
+  serverPartialEncoded=${server//./%2E} # encode periods to throw off domain detection on Twitter
+  echo -n "'$server': '$serverPartialEncoded'" >> "${TEMP_FILE}"
   index=$((index+1))
   if [ $index -eq ${#servers[@]} ]; then
     echo "};" >> "${TEMP_FILE}"
