@@ -1,6 +1,8 @@
 # mastodon-redirect
 Since Twitter decided to block Mastodon URLs, I've created this redirect website to automatically redirect to your Mastodon profile URL.
 
+## NOTE: No longer being updated/hosted, Twitter stopped blocking Mastodon links at some point, which means this is no longer needed.
+
 ## Website Usage
 You'll need to first go to the website to generate the link, [Mastodon Redirect](https://thealiendrew.github.io/mastodon-redirect/), by entering the Mastodon profile in the `@[username]@[mastodon.server]` format, and then you'll be able to generate a working URL that should avoid Twitter blocking.
 
