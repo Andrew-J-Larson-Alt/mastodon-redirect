@@ -8,14 +8,14 @@ You'll need to first go to the website to generate the link, [Mastodon Redirect]
 
 Examples of generation URLs:
 
-- Profile URL: `https://andrew-j-larson.github.io/mastodon-redirect/?p=AlienDrew@mstdn.social`
-- Username and Server URL: `https://andrew-j-larson.github.io/mastodon-redirect/?u=AlienDrew&s=mstdn.social`
-- Username and Server URL (Alt): `https://andrew-j-larson.github.io/mastodon-redirect/?s=mstdn.social&u=AlienDrew`
+- Profile URL: `https://andrew-j-larson.github.io/mastodon-redirect/?p=Andrew_J_Larson@mastodon.social`
+- Username and Server URL: `https://andrew-j-larson.github.io/mastodon-redirect/?u=Andrew_J_Larson&s=mastodon.social`
+- Username and Server URL (Alt): `https://andrew-j-larson.github.io/mastodon-redirect/?s=mastodon.social&u=Andrew_J_Larson`
 
 Examples of redirecting URLs:
 
-- Profile URL (works on most sites): `https://andrew-j-larson.github.io/mastodon-redirect/?p=AlienDrew@mstdn%2Esocial`
-- Profile URL (`@` replaced with `%40`; works on all sites): `https://andrew-j-larson.github.io/mastodon-redirect/?p=AlienDrew%40mstdn%2Esocial`
+- Profile URL (works on most sites): `https://andrew-j-larson.github.io/mastodon-redirect/?p=Andrew_J_Larson@mastodon%2Esocial`
+- Profile URL (`@` replaced with `%40`; works on all sites): `https://andrew-j-larson.github.io/mastodon-redirect/?p=Andrew_J_Larson%40mastodon%2Esocial`
 
 ### Notes on crafting redirect URLs:
 If you are crafing these links manually, you must:
@@ -24,9 +24,9 @@ If you are crafing these links manually, you must:
 
 ### Notes on Twitter detection and blocks:
 Twitter will block links if it senses either of the following:
-- If the URL is a Mastodon server, e.g. `https://mstdn.social/`
+- If the URL is a Mastodon server, e.g. `https://mastodon.social/`
 - If `mastodon` is somewhere in the URL, e.g. `https://i.redirect.to.mastodon/...` or `https://example.com/mastodon/...`
-- If a website parameter uses a Mastodon server (with or without percent encoding, is still detected), e.g. `?server=mstdn.social`
+- If a website parameter uses a Mastodon server (with or without percent encoding, is still detected), e.g. `?server=mastodon.social`
 
 ![Preview](https://github.com/Andrew-J-Larson-Alt/mastodon-redirect/blob/main/img/readme/preview.png)
 
